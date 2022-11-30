@@ -80,7 +80,7 @@ describe('items', () => {
     expect(resp.status).toEqual(401);
   });
 
-  it.only('UPDATE /api/v1/items/:id should update an item', async () => {
+  it('UPDATE /api/v1/items/:id should update an item', async () => {
     // create a user
     const [agent, user] = await registerAndLogin();
     const item = await Item.insert({
@@ -111,7 +111,7 @@ describe('items', () => {
     expect(resp.status).toBe(403);
   });
 
-  it('DELETE /api/v1/items/:id should delete items for valid user', async () => {
+  it.only('DELETE /api/v1/items/:id should delete items for valid user', async () => {
     const [agent, user] = await registerAndLogin();
     const item = await Item.insert({
       description: 'apples',
